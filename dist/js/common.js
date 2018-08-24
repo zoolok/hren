@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    /* --------------------------------------------------------
+     REMOVE BR MOBILE
+    ----------------------------------------------------------- */
 
     /* --------------------------------------------------------
          INDEX  SLIDERS
@@ -17,6 +20,18 @@ $(document).ready(function () {
                 autoplay: false
             });
         }
+        if ($(".lic-wrap").length && document.body.clientWidth < 768) {
+
+            $('.lic-wrap').owlCarousel({
+                items: 1,
+                nav: false,
+                dots: true,
+                loop: true,
+                center: true,
+                autoplay: false,
+                margin:20
+            });
+        }
         if ($(".slider-logo").length > 0) {
 
             $('.slider-logo').owlCarousel({
@@ -32,13 +47,24 @@ $(document).ready(function () {
         if ($(".serv-list-tabs").length > 0) {
 
             $('.serv-list-tabs').owlCarousel({
-                items: 7,
                 nav: true,
                 navText: ["", ""],
                 dots: false,
                 loop: false,
                 center: false,
-                autoplay: false
+                autoplay: false,
+                responsive:{
+                    0:{
+                        items:1,
+                    },
+                    768:{
+                        items:3,
+                    },
+                    1920:{
+                        items:7,
+                    }
+
+                }
             });
         }
         if ($(".personal-slider").length > 0) {
@@ -47,11 +73,28 @@ $(document).ready(function () {
                 items: 4,
                 nav: true,
                 navText: ["", ""],
-                dots: false,
                 loop: false,
                 center: false,
                 autoplay: false,
-                margin:40
+                margin:40,
+                responsive:{
+                    0:{
+                        items:1,
+                        margin:10,
+                        dots:true,
+                        nav: false
+                    },
+                    768:{
+                        items:2,
+                        margin:10,
+                        dots:true
+                    },
+                    1920:{
+                        items:4,
+                        dots:false
+                    }
+
+                }
             });
         }
         if ($(".clean-process").length > 0) {
@@ -81,6 +124,22 @@ $(document).ready(function () {
             });
             $('.slider-logo-otzyv').slick({
                 slidesToShow: 6,
+                responsive: [
+                    {
+                        breakpoint: 1920,
+                        settings: {
+                            slidesToShow: 6,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            autoplay:false,
+                            centerPadding:'70px'
+                        }
+                    }
+                ],
                 slidesToScroll: 1,
                 asNavFor: '.slider-otzyv',
                 dots: true,
@@ -218,6 +277,10 @@ ADD ANIMATIONS
 
             var curItem = $(this).attr('datatype');
             console.log(curItem);
+
+            if(document.body.clientWidth < 768){
+                $("html, body").animate({scrollTop: ($('#serv-content, .serv-content').offset().top - 100) +"px"});
+            }
 
             $('.serv-button ul li').each(function (index) {
                 $(this).removeClass('select');
@@ -368,6 +431,8 @@ function initMap(xMap,yMap) {
     var centerLatLng = new google.maps.LatLng(xMap, yMap);
     var mapOptions = {
         center: centerLatLng,
+        disableDefaultUI: true,
+        //mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoom: 17,
         styles:[
             {
