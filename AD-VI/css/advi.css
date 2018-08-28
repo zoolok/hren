@@ -71,6 +71,64 @@ body {
     filter: drop-shadow(2px 2px 30px #3b3b3b);
     position: relative;
     transform-origin: 50px 0  0;
+    -webkit-transition: all ease .6s;
+    -moz-transition: all ease .6s;
+    -ms-transition: all ease .6s;
+    -o-transition: all ease .6s;
+    transition: all ease .6s;
+    z-index: 2;
+}
+#tabletka span{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    color: #feef48;
+    text-transform: uppercase;
+    font-size: 3rem;
+    cursor: pointer;
+    opacity: 0;
+    white-space: nowrap;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#tabletka span:before{
+    position: absolute;
+    content: '';
+    width: 16rem;
+    height: 16rem;
+    background-image: linear-gradient(to top,#6b3ef8 0%, #b22ad6 50%, #fb1db4 100%);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+#tabletka span:hover{
+    -webkit-transform: translateY(-20px);
+    -moz-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#tabletka span#razrab:before,
+#tabletka span#analiz:before{
+    top: calc(50% - 8rem);
+    left: calc(100% - 9rem);
+}
+#tabletka span#marketing:before,
+#tabletka span#branding:before{
+    top: calc(50% - 8rem);
+    left: calc(0% - 7rem);
 }
 .yel:after,
 .blue:after{
@@ -81,10 +139,9 @@ body {
     border-radius: 50px;
     background-image: linear-gradient(to top, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.7) 100% );
     top: 3rem;
-
     z-index: 1;
 }
-{}
+
 .blue:after{
     left: calc(50% - 19rem);
 }
