@@ -70,16 +70,10 @@ body {
     margin: 0 auto;
     filter: drop-shadow(2px 2px 30px #3b3b3b);
     position: relative;
-    transform-origin: 50px 0  0;
-    -webkit-transition: all ease .6s;
-    -moz-transition: all ease .6s;
-    -ms-transition: all ease .6s;
-    -o-transition: all ease .6s;
-    transition: all ease .6s;
+    transform-origin: 0 50%  0;
     z-index: 2;
 }
 #tabletka span{
-    display: none;
     position: absolute;
     top: 0;
     left: 50%;
@@ -89,11 +83,7 @@ body {
     cursor: pointer;
     opacity: 0;
     white-space: nowrap;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+    z-index: -1;
 }
 #tabletka span:before{
     position: absolute;
@@ -114,12 +104,21 @@ body {
     -ms-transform: translateY(-20px);
     -o-transform: translateY(-20px);
     transform: translateY(-20px);
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+
 }
+#razrab,
+#analiz,
+#marketing,
+#branding{
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+
+
 #tabletka span#razrab:before,
 #tabletka span#analiz:before{
     top: calc(50% - 8rem);
@@ -322,6 +321,63 @@ section{
 }
 .services{
     background-image: linear-gradient(to top, #663ffb 0%, #bc1b99 100%);
+}
+.services .container{
+    width: 100%;
+    height: 100%;
+}
+.serv-pop-up{
+    position: absolute;
+    max-width:60rem;
+    max-height: 60rem;
+    background-color: #feef48;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    border-radius: 10rem;
+    padding: 5rem;
+    top:calc(50% - 30rem);
+    left: calc(50% - 30rem);
+    z-index: 10;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    color:  #663ffb;
+    filter: drop-shadow(2px 2px 30px #3b3b3b);
+}
+.serv-pop-up h3{
+    text-transform: uppercase;
+    font-size: 3rem;
+    color:  #663ffb;
+}
+.serv-pop-up__content{
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.close-pop-up{
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 3.5rem;
+    right: 8.5rem;
+}
+.close-pop-up:hover:before{
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.close-pop-up:before{
+    position: absolute;
+    content: '\f00d';
+    width: 1.5rem;
+    height: 1.5rem;
+    font-family: "FontAwesome";
+    font-size: 4rem;
+    color:  #663ffb;
+    cursor: pointer;
 }
 footer{
     background-color:  #663ffb;
