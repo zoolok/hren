@@ -62,9 +62,9 @@ body {
 
 .flex{
     display: flex;
-
 }
-#tabletka{
+#tabletka,
+#tabletka-footer{
     width: 52rem;
     height: 25.6rem;
     margin: 0 auto;
@@ -191,11 +191,17 @@ section{
     filter: drop-shadow(1px 1px 5px #000);
 }
 .tabletka-logo .yel:before,
-.tabletka-logo .blue:before{
+.tabletka-logo .blue:before,
+#tabletka-footer .yel:before,
+#tabletka-footer .blue:before,
+#tabletka-footer .yel:after,
+#tabletka-footer .blue:after{
     content: none;
 }
+
 #tabletka div,
-.tabletka-logo div{
+.tabletka-logo div,
+#tabletka-footer div{
     width: 50%;
     height: 100%;
     display: flex;
@@ -382,4 +388,64 @@ section{
 footer{
     background-color:  #663ffb;
     height: 100vh;
+}
+footer h3{
+    text-align: center;
+    text-transform: uppercase;
+    color: #feef48;
+    font-size: 7rem;
+    font-weight: 900;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+    padding-top: 10rem;
+    padding-bottom: 20rem;
+}
+footer .yel{
+    padding-left: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+footer .blue{
+    padding-right: 4rem;
+    display: flex;
+    flex-direction: column;
+ }
+
+#tabletka-footer input {
+    border: none;
+    height: 5rem;
+    width: 100%;
+    padding-left: 2rem;
+    font-size: 2rem;
+}
+.yel input {
+    border-bottom-left-radius:3rem;
+    border-top-left-radius:3rem;
+}
+.blue input {
+    border-bottom-right-radius:3rem;
+    border-top-right-radius:3rem;
+}
+#tabletka-footer button{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    top: calc(50% - 5px);
+    right: 50px;
+    cursor: pointer;
+}
+#tabletka-footer button:before{
+    position: absolute;
+    content: '\f2c6';
+    font-family: "FontAwesome";
+    width: 100%;
+    height: 100%;
+    top: -3px;
+    left: 4px;
+    color: #663ffb;
+    font-size: 4rem;
 }
