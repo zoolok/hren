@@ -134,7 +134,7 @@ $('#tabletka span').click(function (e) {
 
     $('.serv-pop-up').each(function (index) {
 
-        if ($(this).css('opacity') == 1) {
+        if ($(this).css('opacity') == 1 && $(this).attr('data') != bn) {
             $(this).find('.close-pop-up').trigger('click');
         }
 
@@ -171,4 +171,17 @@ $('.menu').click(function (e) {
     $('.menu i').toggleClass('fa-bars fa-times');
     $('.menu-wrap ul li').toggleClass('fadeInUp animated');
     $(this).next().toggleClass('open');
+});
+
+/* --------------------------------------------------------
+SMOTH SCROL
+----------------------------------------------------------- */
+$(function() {
+
+    // Default
+  jQuery.scrollSpeed(100, 2800);
+
+    // Custom Easing
+ /*   jQuery.scrollSpeed(100, 800, 'easeOutCubic');*/
+
 });
