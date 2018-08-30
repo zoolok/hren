@@ -183,9 +183,14 @@ $('.menu').click(function (e) {
     $('.menu-wrap ul li').toggleClass('fadeInUp animated');
     $(this).next().toggleClass('open');
 });
-
+$(document).keydown(function(eventObject){
+    if( eventObject.which == 27 ){
+        $('.menu i').toggleClass('fa-bars fa-times');
+        $('.menu').next().toggleClass('open');
+    }
+});
 /* --------------------------------------------------------
-SMOTH SCROL
+SMOTH SCROLL
 ----------------------------------------------------------- */
 $(function() {
 
