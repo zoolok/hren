@@ -169,7 +169,6 @@ MENU SHOW
 $('.menu').click(function (e) {
     e.preventDefault();
     $('.menu i').toggleClass('fa-bars fa-times');
-    $('.menu-wrap ul li').toggleClass('anim');
-    $('section, footer').toggleClass('blured');
+    $('.menu-wrap ul li').toggleClass('fadeInUp animated');
     $(this).next().toggleClass('open');
 });

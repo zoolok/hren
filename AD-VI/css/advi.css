@@ -464,7 +464,7 @@ footer .blue{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 100;
     opacity: 0;
     visibility: hidden;
@@ -474,6 +474,12 @@ footer .blue{
 }
 .menu-wrap ul{
     list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
 }
 .menu-wrap ul li a{
     text-decoration: none;
@@ -483,50 +489,33 @@ footer .blue{
     font-weight: 900;
 }
 .menu-wrap ul li{
-    margin-bottom: 2rem;
     position: relative;
-    animation-name:menu-show;
-    animation-duration: 1.5s;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
 }
-.menu-wrap ul li.anim{
-    animation-name:menu-show;
-    animation-duration: 2s;
+.menu-wrap ul li:hover{
+    background-color: rgba(255,255,255,0.1);
 }
+
 .menu-wrap ul li:nth-of-type(1){
-    animation-delay:0.4s;
+    animation-delay:0.2s;
 }
 .menu-wrap ul li:nth-of-type(2){
-    animation-delay: 0.8s;
+    animation-delay: 0.4s;
 }
 .menu-wrap ul li:nth-of-type(3){
-    animation-delay: 1.2s;
+    animation-delay: 0.6s;
 }
 .menu-wrap ul li:nth-of-type(4){
-    animation-delay: 1.6s;
+    animation-delay: 0.8s;
 }
-@keyframes menu-show  {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-200px);
-        -moz-transform: translateY(-200px);
-        -ms-transform: translateY(-200px);
-        -o-transform: translateY(-200px);
-        transform: translateY(-200px);
-    }
-    100%{
-        opacity: 1;
-        -webkit-transform: translateY(0px);
-        -moz-transform: translateY(0px);
-        -ms-transform: translateY(0px);
-        -o-transform: translateY(0px);
-        transform: translateY(0px);
-    }
-}
+
 .menu-wrap ul li:before{
     position: absolute;
     content: '';
     width: 0;
-    height: 1.8rem;
+    height: 1.0rem;
     background-color: rgba(254, 239, 72, 0.71);
     bottom: 0;
     left: -1rem;
