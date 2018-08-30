@@ -10,12 +10,21 @@
 
 </head>
 <body >
-<section  class="top" >
+<div class="menu">
+    <i class="fa fa-bars fa-lg"></i>
+</div>
+<div class="menu-wrap">
+    <ul>
+        <li><a href="#home">главная</a></li>
+        <li><a href="#lorem">lorem</a></li>
+        <li><a href="#content">услуги</a></li>
+        <li><a href="#foo">контакты</a></li>
+    </ul>
+</div>
+
+<section  class="top" id="home" >
     <div class="container">
         <header class="flex">
-            <div class="menu">
-                <i class="fa fa-bars fa-lg"></i>
-            </div>
             <div class="logo flex">
                 <div class="tabletka-logo flex">
                     <div class="yel">ad</div>
@@ -62,7 +71,7 @@
         </div>
     </div>
 </section>
-<section class="services">
+<section class="services" id="lorem">
     <div class="container">
         <div class="serv-pop-up" data="marketing">
             <span class="close-pop-up"></span>
@@ -150,11 +159,11 @@
         </div>
     </div>
 </section>
-<footer>
+<footer id="foo">
     <div class="container">
         <h3>Контакты</h3>
         <div class="footer-form-wrap">
-            <form id="tabletka-footer" class="flex">
+            <form id="tabletka-footer" class="flex" method="post">
                 <div class="yel">
                     <label for="name">Имя</label>
                     <input type="text" name="name" id="name" required>
@@ -169,7 +178,7 @@
     </div>
 </footer>
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/masked-input.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
-
 </body>
 </html>

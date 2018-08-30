@@ -17,6 +17,17 @@ $(document).ready(function () {
             }, 1000);
         });
     });
+    $(function () {
+        "use strict";
+        $(".menu-wrap ul li a").on('click', function (event) {
+            event.preventDefault();
+            var hash = this.hash;
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000);
+        });
+    });
 
 });
 
@@ -25,10 +36,14 @@ TABLETKA DRIVE
 ----------------------------------------------------------- */
 $(window).scroll(function () {
     var dy = $(this).scrollTop();
-    var wh = window.innerHeight;
+    var wh = window.innerHeight; // высота видимого окна
+    var dh = $('html').height(); //высота всего документа
 
     console.log(dy);
     console.log(wh);
+    console.log(dh);
+
+    $('.menu i').css('color','rgba('+ (89+(dy*165/(dh - wh))) + ',' + (71+(dy*168/(dh - wh)))+ ',' + (244-(dy*175/(dh - wh)))+')' ); // цвет меню при скролле
 
     if (dy < wh / 5) {
 
@@ -147,4 +162,14 @@ $('.close-pop-up').click(function (e) {
         'top': 0,
         'left': 0
     });
+});
+/* --------------------------------------------------------
+MENU SHOW
+----------------------------------------------------------- */
+$('.menu').click(function (e) {
+    e.preventDefault();
+    $('.menu i').toggleClass('fa-bars fa-times');
+    $('.menu-wrap ul li').toggleClass('anim');
+    $('section, footer').toggleClass('blured');
+    $(this).next().toggleClass('open');
 });
