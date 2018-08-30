@@ -185,8 +185,8 @@ $('.menu').click(function (e) {
 });
 $(document).keydown(function(eventObject){
     if( eventObject.which == 27 ){
-        $('.menu i').toggleClass('fa-bars fa-times');
-        $('.menu').next().toggleClass('open');
+        $('.menu i').removeClass('fa-times').addClass('fa-bars');
+        $('.menu').next().removeClass('open');
     }
 });
 /* --------------------------------------------------------
