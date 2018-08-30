@@ -39,9 +39,11 @@ $(window).scroll(function () {
     var wh = window.innerHeight; // высота видимого окна
     var dh = $('html').height(); //высота всего документа
 
+/*
     console.log(dy);
     console.log(wh);
     console.log(dh);
+*/
 
     $('.menu i').css('color','rgba('+ (89+(dy*165/(dh - wh))) + ',' + (71+(dy*168/(dh - wh)))+ ',' + (244-(dy*175/(dh - wh)))+')' ); // цвет меню при скролле
 
@@ -60,7 +62,7 @@ $(window).scroll(function () {
     } else if (dy < 2 * wh - 400) {
 
 
-        $('#tabletka').css('transform', 'rotate(-90deg)');
+        $('#tabletka').css('transform', 'rotate(-90deg)').removeClass('open');
         $('#tabletka').animate({
                 'top': dy + 300
             }, {
@@ -83,11 +85,20 @@ $(window).scroll(function () {
         });
 
 
+        $('.serv-pop-up').each(function (index) {
+            if ($(this).css('opacity') == 1  ) {
+                $(this).find('.close-pop-up').trigger('click');
+            }
+        });
+
+
+
     } else {
 
         $('#tabletka').css({
             'transform': 'rotate(0deg)'
-        });
+        }).addClass('open');
+
         $('#tabletka>.yel').css({
             'transform': 'rotate(45deg)'
         });
@@ -134,7 +145,7 @@ $('#tabletka span').click(function (e) {
 
     $('.serv-pop-up').each(function (index) {
 
-        if ($(this).css('opacity') == 1 && $(this).attr('data') != bn) {
+        if ($(this).css('opacity') == 1 && $(this).attr('data') != bn ) {
             $(this).find('.close-pop-up').trigger('click');
         }
 
@@ -179,7 +190,7 @@ SMOTH SCROL
 $(function() {
 
     // Default
-  jQuery.scrollSpeed(100, 2800);
+  jQuery.scrollSpeed(100, 2000);
 
     // Custom Easing
  /*   jQuery.scrollSpeed(100, 800, 'easeOutCubic');*/
