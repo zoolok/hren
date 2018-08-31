@@ -186,6 +186,7 @@ $('.menu').click(function (e) {
 $(document).keydown(function(eventObject){
     if( eventObject.which == 27 ){
         $('.menu i').removeClass('fa-times').addClass('fa-bars');
+        $('.menu-wrap ul li').removeClass('fadeInUp animated');
         $('.menu').next().removeClass('open');
     }
 });
