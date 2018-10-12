@@ -60,6 +60,11 @@ $(document).ready(function () {
                     768:{
                         items:3,
                     },
+                    1024:{
+                        items:7  ,
+                        margin:10,
+                        dots:true
+                    },
                     1920:{
                         items:7,
                     }
@@ -86,6 +91,11 @@ $(document).ready(function () {
                     },
                     768:{
                         items:2,
+                        margin:10,
+                        dots:true
+                    },
+                    1024:{
+                        items:4,
                         margin:10,
                         dots:true
                     },
@@ -269,6 +279,31 @@ ADD ANIMATIONS
 
         }
     });
+    $(function() {
+        "use strict";
+
+        var t =  $('.mission');
+        var shift = 400;
+        var a = $('.l-image, .t-image, .b-image');
+
+        if ( t.length > 0 ) {
+            a.css('opacity', '0');
+
+            $(window).on("scroll load resize", function () {
+
+                var t_top = $(window).scrollTop();
+                var t_pos = t.offset().top;
+
+                console.log(t_top);
+                console.log(t_pos);
+
+                if(t_top> (t_pos - shift)){
+                    a.addClass('animated fadeIn');
+                }
+
+            });
+        }
+    });
     /* --------------------------------------------------------
     SERVICES TABS
     ----------------------------------------------------------- */
@@ -288,9 +323,9 @@ ADD ANIMATIONS
 
             $('.serv-item').each(function (index) {
                 if($(this).attr('datatype') == curItem){
-                    $(this).addClass('active').animate({opacity: "1"}, 400);
+                    $(this).addClass('active').animate({opacity: "1"}, 0);
                 }else{
-                    $(this).removeClass('active').animate({opacity: "0"}, 400);
+                    $(this).removeClass('active').animate({opacity: "0"}, 0);
                 }
             });
             $(this).toggleClass('select');
@@ -600,7 +635,7 @@ $('.prev').click(function () {
 FAQ
 ----------------------------------------------------------- */
 $('.question').click(function () {
-    $(this).next().slideToggle(600);
+    $(this).next().slideToggle(300);
     $(this).toggleClass('down');
 });
 
@@ -614,7 +649,7 @@ $('.q-list li').click(function () {
     $(this).addClass('select');
 
     $.each($('[class^="fag-item-wrap-"]'),function (index ,value) {
-        $(this).removeClass('active').animate({'opacity':'0'},300);
+        $(this).animate({'opacity':'0'},200).removeClass('active');
     });
-    $('.fag-item-wrap-' + curFaq).addClass('active').animate({'opacity':'1'},300);
+    $('.fag-item-wrap-' + curFaq).addClass('active').animate({'opacity':'1'},200);
 });
