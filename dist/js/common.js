@@ -249,61 +249,33 @@ ADD ANIMATIONS
         }
     });
 
-    $(function() {
+
+    anim( $('.history'),700,$('.history ul li'), 'flipInX');
+
+    anim( $('.mission'),800,$('.l-image, .t-image, .b-image'), 'fadeIn');
+    /*
+    t - DOM объект в котором содержутся объекты анимации;
+    shift - за сколько пикселей до t начинаем анимацию;
+    a - список объектов анимации,
+    anim - название эффекта анимации(из библиотеки animation.css)
+     */
+    function anim (t, shift, a, anim) {
         "use strict";
-        var map =  $('.history');
-
-        if ( map.length > 0 ) {
-
-            var show = true;
-
-            $(window).on("scroll load resize", function () {
-
-                if (!show) return false;
-
-                var w_top = $(window).scrollTop();
-                var e_top = $(map).offset().top;
-
-                var w_height = $(window).height();
-                var d_height = $(document).height();
-
-                var e_height = $(map).outerHeight();
-
-                if (w_top + 800 >= e_top || w_height + w_top == d_height || e_height + e_top < w_height) {
-
-                    $('.history ul li').addClass('animated fadeIn');
-
-                    show = false;
-                }
-            });
-
-        }
-    });
-    $(function() {
-        "use strict";
-
-        var t =  $('.mission');
-        var shift = 400;
-        var a = $('.l-image, .t-image, .b-image');
-
         if ( t.length > 0 ) {
-            a.css('opacity', '0');
+            /* a.css('opacity', '0');*/
 
             $(window).on("scroll load resize", function () {
 
                 var t_top = $(window).scrollTop();
                 var t_pos = t.offset().top;
 
-                console.log(t_top);
-                console.log(t_pos);
-
-                if(t_top> (t_pos - shift)){
-                    a.addClass('animated fadeIn');
+                if(t_top > (t_pos - shift)){
+                    a.addClass('animated ' + anim);
                 }
 
             });
         }
-    });
+    }
     /* --------------------------------------------------------
     SERVICES TABS
     ----------------------------------------------------------- */
@@ -652,4 +624,37 @@ $('.q-list li').click(function () {
         $(this).animate({'opacity':'0'},200).removeClass('active');
     });
     $('.fag-item-wrap-' + curFaq).addClass('active').animate({'opacity':'1'},200);
+});
+
+/* --------------------------------------------------------
+FIXED MENU
+----------------------------------------------------------- */
+$(window).on("scroll load resize", function () {
+    var h = $('header');
+    var st = $(window).scrollTop();
+    var hh = h.outerHeight(true);
+    var shift = 50;
+
+  /*  console.log(hh);*/
+
+    if(st > (hh + shift)){
+        h.addClass('fixed animated fadeInDown');
+        $('header.fixed .logo>a>img').attr('src','images/logo-fixed.png')
+        $('header nav').css('display','none');
+    }else{
+        h.removeClass('fixed fadeInDown');
+        $('header .logo>a>img').attr('src','images/logo-footer.png');
+        $('header nav').css('display','block');
+    }
+
+});
+
+$('.fixed-button span').click(function () {
+    $(this).toggleClass('hide show');
+    if ($(this).hasClass('show')){
+        $('.fixed nav').slideDown().addClass('full');
+    }else{
+        $('.fixed nav').slideUp().removeClass('full');
+
+    }
 });

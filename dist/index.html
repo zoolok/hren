@@ -34,13 +34,33 @@
                         <button class="srch-but"></button>
                     </form>
                 </div>
+                <div class="fixed-button">
+                    <span class="hide"></span>
+                </div>
                 <!--<div class="desc-none mob-button&#45;&#45;menu"></div>-->
                 <div class="desc-none mob--menu">меню</div>
             </div>
 
             <nav class="mobile-none">
+                <div class="container">
+                    <form id="srch-fix">
+                        <button class="srch-but-fix"></button>
+                        <input type="text" name="search" placeholder="Поиск по сайту">
+                    </form>
+                </div>
                 <ul class="flex">
-                    <li><a href="about.html">о компании</a></li>
+                    <li><a href="about.html" class="dropdown">о компании</a>
+                        <ul class="submenu flex">
+                            <li class="w50">
+                                <h3>О компании</h3>
+                                <p>и, разогревают осадки в резервуаре локально по всему днищу, разогрев 5000 м³ происходит максимум за 7 суток, возврат углеводорода 3 суток, зачистка днища от мехпримесей 14 дней, что гарантирует выполнение работ в</p>
+                                <a href="about.html" class="more-menu">Подробнее</a>
+                            </li>
+                            <li class="w50 li-img">
+                                <img src="images/about-menu-img.png" alt="about NIPT image">
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="#" class="dropdown">услуги</a>
                         <ul class="submenu flex">
                             <li>
