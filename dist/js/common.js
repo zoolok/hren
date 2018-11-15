@@ -640,11 +640,11 @@ $(window).on("scroll load resize", function () {
     if(st > (hh + shift)){
         h.addClass('fixed animated fadeInDown');
         $('header.fixed .logo>a>img').attr('src','images/logo-fixed.png')
-        $('header nav').css('display','none');
+/*        $('header nav').css('display','none');*/
     }else{
         h.removeClass('fixed fadeInDown');
         $('header .logo>a>img').attr('src','images/logo-footer.png');
-        $('header nav').css('display','block');
+  /*      $('header nav').css('display','block');*/
     }
 
 });
